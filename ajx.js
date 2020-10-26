@@ -1,22 +1,28 @@
 // This function loads pokemon data from the Pokemon API
 function fetchPokemonJSON() {
     // Feel free to download this HTML and edit it, to use another Pokemon ID
-    const pokemonId = 1;
-    const url = `https://pokeapi.co/api/v2/pokemon/${pokemonId}`;
+   
+    const url = `https://simpsons-quotes-api.herokuapp.com/quotes`;
     axios.get(url)
       .then(function(response) {
         return response.data; // response.data instead of response.json() with fetch
       })
-      .then(function(pokemon) {
-        console.log('data decoded from JSON:', pokemon);
+      .then(function(simpsons) {
+        console.log('data decoded from JSON:', simpsons);
   
         // Build a block of HTML
         const pokemonHtml = `
-          <p><strong>${pokemon.name}</strong></p>
-          <img src="${pokemon.sprites.front_shiny}" />
+          <p><strong>${simpsons[0].quote}</strong></p>
+          <p><strong>${simpsons[0].character}</strong></p>
+          <img src="${simpsons[0].image}" />
+          <p><strong>${simpsons[0].characterDirection}</strong></p>
+          
         `;
-        document.querySelector('#pokemon').innerHTML = pokemonHtml;
-      });
+        document.querySelector('.content').innerHTML = pokemonHtml;
+        
+       
+          });
+      
   }
   
   fetchPokemonJSON();
