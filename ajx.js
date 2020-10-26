@@ -15,11 +15,13 @@ function fetchPokemonJSON() {
           <p><strong>${simpsons[0].quote}</strong></p>
           <p><strong>${simpsons[0].character}</strong></p>
           <img src="${simpsons[0].image}" />
-          <p><strong>${simpsons[0].characterDirection}</strong></p>
+          
           
         `;
         document.querySelector('.content').innerHTML = pokemonHtml;
-        
+        document.querySelector('#myButton').addEventListener('click', function() {
+            location.reload();
+          });
        
           });
       
